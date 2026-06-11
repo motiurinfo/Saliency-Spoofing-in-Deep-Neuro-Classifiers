@@ -16,13 +16,13 @@ The primary notebook utilizes `timm` for EfficientNet architectures and PyTorch 
 It is recommended to use a virtual environment (like `venv` or `conda`) to manage your dependencies.
 
 1. **Clone the repository:**
-   ```bash
+   ```
    git clone [https://github.com/motiurinfo/Saliency-Spoofing-in-Deep-Neuro-Classifiers.git](https://github.com/motiurinfo/Saliency-Spoofing-in-Deep-Neuro-Classifiers.git)
    cd Saliency-Spoofing-in-Deep-Neuro-Classifiers
    ```
 2. Create and activate a virtual environment:
 
-```Bash
+```
 python -m venv venv
 
 # On Windows:
@@ -33,7 +33,6 @@ source venv/bin/activate
 ```
 3. Install the dependencies:
 ```
-Bash
 pip install -r requirements.txt
 ```
 4.Usage
