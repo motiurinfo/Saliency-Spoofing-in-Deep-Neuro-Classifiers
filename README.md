@@ -17,8 +17,8 @@ It is recommended to use a virtual environment (like `venv` or `conda`) to manag
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yourusername/saliency-spoofing.git](https://github.com/yourusername/saliency-spoofing.git)
-   cd saliency-spoofing
+   git clone [https://github.com/motiurinfo/Saliency-Spoofing-in-Deep-Neuro-Classifiers.git](https://github.com/motiurinfo/Saliency-Spoofing-in-Deep-Neuro-Classifiers.git)
+   cd Saliency-Spoofing-in-Deep-Neuro-Classifiers
    ```
 2. Create and activate a virtual environment:
 
