@@ -43,7 +43,6 @@ Model Weights: If you have pre-trained seed models, place them in the models/ di
 
 5.Run Notebook:
 ```
-Bash
 jupyter lab
 ```
 
