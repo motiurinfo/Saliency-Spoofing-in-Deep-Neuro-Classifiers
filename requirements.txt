@@ -1,0 +1,18 @@
+# Core Deep Learning
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Model Architectures
+timm>=0.9.0
+
+# Visualization & Explainability
+matplotlib>=3.7.0
+grad-cam>=1.4.8
+
+# Data Manipulation & Utils
+numpy>=1.24.0
+Pillow>=9.5.0
+tqdm>=4.65.0
+
+# Jupyter Environment
+jupyterlab>=4.0.0
