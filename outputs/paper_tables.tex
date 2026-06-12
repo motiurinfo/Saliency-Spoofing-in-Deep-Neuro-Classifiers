@@ -1,0 +1,119 @@
+
+%% ─────────────────────────────────────────────────────────────────────────
+%% TABLE 1 — BriscMat Standard Classification Performance
+%% ─────────────────────────────────────────────────────────────────────────
+\begin{table}[h]
+\centering
+\caption{\textbf{Standard global performance metrics on BriscMat (primary
+dataset).} Best validation epoch over 20 training epochs.}
+\label{tab:briscmat_global}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{Precision} &
+  \textbf{Recall} & \textbf{F1-Score} \\
+\midrule
+  ResNet50 & 98.01% & 0.9778 & 0.9772 & 0.9775 \\
+  EfficientNet-B0 & 98.39% & 0.9830 & 0.9810 & 0.9819 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% ─────────────────────────────────────────────────────────────────────────
+%% TABLE 2 — BriscMat Shortcut Excision Audit
+%% ─────────────────────────────────────────────────────────────────────────
+\begin{table}[h]
+\centering
+\caption{\textbf{Quantitative excision audit on BriscMat.}
+SFR = Shortcut Failure Rate under 10-pixel dilated excision.}
+\label{tab:briscmat_audit}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Architecture} & \textbf{Attn.\ Overlap} &
+  \textbf{SFR (dilated)} & \textbf{$p$-value} \\
+\midrule
+  ResNet50        & 8.39\% & 78.37\% & $2.25\times10^{-51}$ \\
+  EfficientNet-B0 & 7.50\% & 85.23\% & $3.20\times10^{-34}$ \\
+  ViT-Base        & —         & 56.16\% & $4.69\times10^{-83}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% TABLE 3 — Saliency Spoofing
+\begin{table}[h]
+\centering
+\caption{\textbf{Saliency Spoofing: ART retains shortcut reliance despite
+locally-focused heatmaps (BriscMat).}}
+\label{tab:art}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{SFR} & \textbf{$p$-value} \\
+\midrule
+  ART-ResNet50        & 97.86\% & 77.09\% & $7.61\times10^{-59}$ \\
+  ART-EfficientNet-B0 & 98.47\% & 83.60\% & $2.85\times10^{-44}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% TABLE 4 — Hard-Gated Cure (BriscMat)
+\begin{table}[h]
+\centering
+\caption{\textbf{Hard-Gated pipeline eradicates background shortcuts
+(BriscMat).}}
+\label{tab:gated_briscmat}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Architecture} & \textbf{Accuracy} & \textbf{SFR} & \textbf{$p$-value} \\
+\midrule
+  Gated-ResNet50        & 88.51\% & 8.14\% & $6.34\times10^{-114}$ \\
+  Gated-EfficientNet-B0 & 89.59\% & 13.14\% & $2.06\times10^{-78}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% TABLE 5 — Cross-Dataset Validation (Nickparvar)
+\begin{table}[h]
+\centering
+\caption{\textbf{Cross-dataset validation on the independent Nickparvar
+Brain Tumour MRI Dataset.} Pseudo-masks generated via GrabCut seeded by
+Grad-CAM bounding boxes. SFR = Shortcut Failure Rate (10-pixel dilated
+excision). Results confirm that the Clever Hans effect and its Hard-Gated
+cure replicate on an independently collected dataset.}
+\label{tab:cross_dataset}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Condition} & \textbf{Architecture} & \textbf{Accuracy} &
+  \textbf{SFR} & \textbf{$p$-value} \\
+\midrule
+  Baseline & ResNet50 & 95.88% & 53.42\% & $1.02\times10^{-173}$ \\
+  Baseline & EfficientNet-B0 & 95.00% & 48.50\% & $1.23\times10^{-157}$ \\
+\midrule
+  Hard-Gated & ResNet50 & 88.69\% & 3.33\% & $6.57\times10^{-154}$ \\
+  Hard-Gated & EfficientNet-B0 & 88.06\% & 3.00\% & $1.33\times10^{-153}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+%% TABLE 6 — Variance Analysis
+\begin{table}[h]
+\centering
+\caption{\textbf{Architectural stability of the Hard-Gated cure.}
+Hard-Gated EfficientNet-B0 re-trained from scratch with three independent
+random seeds (BriscMat).}
+\label{tab:variance}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Seed} & \textbf{Accuracy} & \textbf{SFR (dilated)} \\
+\midrule
+  42 & 89.59\% & 13.14\% \\
+  123 & 90.20\% & 12.67\% \\
+  2026 & 89.20\% & 14.07\% \\
+\midrule
+  \textbf{Mean} & \textbf{89.66\%} & \textbf{13.29\% $\pm$ 0.58\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
