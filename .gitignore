@@ -1,0 +1,26 @@
+# Environments
+.env
+.venv
+venv/
+env/
+
+# Data & Models (Do not commit large files)
+data/
+models/
+*.pth
+*.pt
+*.h5
+
+# Outputs & Visualizations
+outputs/
+*.pdf
+*.png
+*.jpg
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
